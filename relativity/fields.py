@@ -364,7 +364,7 @@ class Relationship(models.ForeignObject):
         return []
 
     def contribute_to_class(self, cls, name, **kwargs):
-        # kwargs['virtual_only'] = True
+        kwargs['private_only'] = True
         super(ForeignObject, self).contribute_to_class(cls, name, **kwargs)
         setattr(cls, self.name, self.accessor_class(self))
 
